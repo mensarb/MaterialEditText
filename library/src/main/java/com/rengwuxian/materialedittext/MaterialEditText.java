@@ -1,6 +1,7 @@
 package com.rengwuxian.materialedittext;
 
-import android.annotation.TargetApi;
+import android.animation.ArgbEvaluator;
+import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.Configuration;
@@ -14,11 +15,6 @@ import android.graphics.PorterDuff;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import android.support.annotation.DrawableRes;
-import android.support.annotation.IntDef;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.AppCompatEditText;
 import android.text.Editable;
 import android.text.Layout;
 import android.text.StaticLayout;
@@ -31,12 +27,13 @@ import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
-
-import com.nineoldandroids.animation.ArgbEvaluator;
-import com.nineoldandroids.animation.ObjectAnimator;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.IntDef;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatEditText;
 import com.rengwuxian.materialedittext.validation.METLengthChecker;
 import com.rengwuxian.materialedittext.validation.METValidator;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -325,7 +322,6 @@ public class MaterialEditText extends AppCompatEditText {
     init(context, attrs);
   }
 
-  @TargetApi(Build.VERSION_CODES.LOLLIPOP)
   public MaterialEditText(Context context, AttributeSet attrs, int style) {
     super(context, attrs, style);
     init(context, attrs);
@@ -1407,11 +1403,7 @@ public class MaterialEditText extends AppCompatEditText {
     super.onDraw(canvas);
   }
 
-  @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
   private boolean isRTL() {
-    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR1) {
-      return false;
-    }
     Configuration config = getResources().getConfiguration();
     return config.getLayoutDirection() == View.LAYOUT_DIRECTION_RTL;
   }

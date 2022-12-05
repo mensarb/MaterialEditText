@@ -1,12 +1,12 @@
 apply plugin: 'com.android.library'
 
 android {
-  compileSdkVersion Integer.parseInt(project.ANDROID_BUILD_SDK_VERSION)
-  buildToolsVersion project.ANDROID_BUILD_TOOLS_VERSION
+  compileSdkVersion 32
+  buildToolsVersion '33.0.1'
 
   defaultConfig {
-    minSdkVersion 7
-    targetSdkVersion Integer.parseInt(project.ANDROID_BUILD_SDK_VERSION)
+    minSdkVersion 21
+    targetSdkVersion 32
   }
   buildTypes {
     release {
@@ -17,10 +17,6 @@ android {
 }
 
 dependencies {
-  compile 'com.android.support:support-annotations:22.2.0'
-  compile 'com.nineoldandroids:library:2.4.0'
-  compile 'com.android.support:appcompat-v7:22.2.0'
+  implementation 'androidx.appcompat:appcompat:1.5.1'
+  implementation 'androidx.core:core:1.8.0'
 }
-
-// Used to push in maven
-apply from: '../maven_push.gradle'

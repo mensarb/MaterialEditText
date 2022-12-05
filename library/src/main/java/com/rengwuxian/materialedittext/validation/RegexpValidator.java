@@ -1,7 +1,6 @@
 package com.rengwuxian.materialedittext.validation;
 
-import android.support.annotation.NonNull;
-
+import androidx.annotation.NonNull;
 import java.util.regex.Pattern;
 
 /**
@@ -9,7 +8,7 @@ import java.util.regex.Pattern;
  */
 public class RegexpValidator extends METValidator {
 
-  private Pattern pattern;
+  private final Pattern pattern;
 
   public RegexpValidator(@NonNull String errorMessage, @NonNull String regex) {
     super(errorMessage);
